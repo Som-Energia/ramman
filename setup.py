@@ -1,7 +1,6 @@
 from setuptools import setup
 
-INSTALL_REQUIRES = [
-]
+INSTALL_REQUIRES = ['requests', 'click']
 
 setup(
     name='ramman',
