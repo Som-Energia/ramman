@@ -19,7 +19,7 @@ class HemanEngine(object):
     def req_to_service(self, req):
         headers = {'Authorization': 'token %s' % req.token}
 
-        url = requests.compat.urljoin(self.url, req.url)
+        url = self.url + '/' + req.url
         data = req.data
         req.headers.update(headers)
 
@@ -109,7 +109,7 @@ class Ramman(object):
     def debug(self, x):
         self.engine.debug = x
 
-    def get_results_by_contract(self, ot, partner_token, contract_id, period=None):
+    def get_results_by_contract(self, contract_id, partner_token, ot, period=None):
         if not HemanOTResults.ot_is_supported(ot):
             raise NotImplementedError
 

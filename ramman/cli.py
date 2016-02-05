@@ -9,7 +9,7 @@ config = {
 
 @click.group()
 @click.pass_context
-def (ctx):
+def ramman(ctx):
     try:
         ctx.obj['emp'] = Ramman(ctx.obj['config'], debug=False)
     except Exception, e:
@@ -20,10 +20,10 @@ def (ctx):
 @click.argument('id', nargs=1)
 @click.argument('token', nargs=1)
 @click.argument('ot', nargs=1)
-def get_results(ctx, ids):
-   for id in list(ids):
-       click.echo(json.dumps(ctx.obj['emp'].get_results_by_contract(id, token, ot), indent=4))
+@click.argument('period', nargs=1)
+def get_results(ctx, id, token, ot, period):
+    click.echo(json.dumps(ctx.obj['emp'].get_results_by_contract(id, token, ot, period), indent=4))
 
 
 if __name__ == '__main__':
-    Ramman(obj={'config': config})
+    ramman(obj={'config': config})
