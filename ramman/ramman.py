@@ -85,7 +85,7 @@ class HemanOTResults(object):
     path = None
 
     @classmethod
-    def ot_is_supported(cls, ot):
+    def ot_supported(cls, ot):
         return ot in cls.SUPPORTED_OT
 
     @classmethod
@@ -109,8 +109,8 @@ class Ramman(object):
     def debug(self, x):
         self.engine.debug = x
 
-    def get_results_by_contract(self, contract_id, partner_token, ot, period=None):
-        if not HemanOTResults.ot_is_supported(ot):
+    def get(self, contract_id, partner_token, ot, period=''):
+        if not HemanOTResults.ot_supported(ot):
             raise NotImplementedError
 
         url = HemanOTResults.path(ot, contract_id, period)

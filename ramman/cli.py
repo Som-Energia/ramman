@@ -22,7 +22,7 @@ def ramman(ctx):
 @click.argument('ot', nargs=1)
 @click.argument('period', nargs=1)
 def get_results(ctx, id, token, ot, period):
-    click.echo(json.dumps(ctx.obj['emp'].get_results_by_contract(id, token, ot, period), indent=4))
+    click.echo(json.dumps(ctx.obj['emp'].get(id, token, ot, period), indent=4))
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ INSTALL_REQUIRES = ['requests', 'click']
 
 setup(
     name='ramman',
-    version='0.1.1',
+    version='0.1.2',
     packages=['ramman'],
     url='http://www.somenergia.coop',
     license='MIT',

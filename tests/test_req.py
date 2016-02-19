@@ -36,8 +36,7 @@ class HemanResultsTest(unittest.TestCase):
                  u'contractId']
 
         contract = read_from_file('data/test_ot101_1.csv')[0]
-
-        results = self.client.get_results_by_contract('OT101', contract[0], contract[1], contract[2])
+        results = self.client.get(contract[0], contract[1], 'OT101')
 
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].keys(), attrs)
